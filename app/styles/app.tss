@@ -1,0 +1,26 @@
+".container": {
+	backgroundColor:"black",
+	height: Ti.UI.FILL,
+	width: Ti.UI.FILL,
+	layout: "vertical"
+}
+
+"Button":{
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_LINE,
+	backgroundColor: "white",
+	color: "black",
+	width: 200,
+	top: 10,
+	height: 50,
+	borderRadius: 5,
+	borderColor: '#ccc',
+}
+
+
+".block": {
+	top: 50,
+	height: 50,
+	width: Ti.UI.FILL
+}
+
+

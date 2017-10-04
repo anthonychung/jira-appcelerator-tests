@@ -1,3 +1,25 @@
-Test cases for Jira Appcelerator
+TEST CASE
+https://jira.appcelerator.org/browse/TIMOB-xxx
 
-Anthony Chung 
+Context: Android bug...
+
+# Android Ti.addEventListener not working when there is an iframe in  local html file
+
+```
+<script>
+Ti.App.addEventListener("app:fromTitanium", function(e) {
+	alert(e.message);
+});
+</script>
+```
+
+This will work when local html has no iframe.
+When there is an iframe in android local html content, 
+Ti.addEventListener no longer works.
+
+# On iOS This works fine.
+But on Android, having an iframe disables the functionality of the inline javascript Ti.App.addEventListener
+
+# To test
+- run the app in Android, then click "Test without iframe" button, which will load index-noiframe.html with the eventListener, click "Fire Event" and the event will successfully alert.
+- close window, then click "Test with iframe" button, which will load index-noiframe.html with the eventListener, click "Fire Event" and the event will not work.
