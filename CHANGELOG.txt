@@ -10,4 +10,9 @@
 - note that the parent inline jscript is able to count the correct number of frames.
 - but the child can't access the parent through window.top,
 - need another way to communicate with the parent.
-- e.g. maybe via postMessage
+- e.g. maybe via postMessage,
+- work in progress, 
+```
+# switch in index.js
+// url: "iframetest/index-postmessage.html"
+```
