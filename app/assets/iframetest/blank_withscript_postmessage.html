@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,user-scalable=yes, initial-scale=1.0">
+<title>Embedded file</title>
+<style>
+.centered {
+	display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+</style>
+<script>
+	function setUpWithScript(){
+		setTimeout(function(){
+			// delay needed after onload so tiinjection is ready
+			
+	      	// alert("blank withscript setupWithScript");
+			Ti.App.addEventListener("app:fromTitanium", function(e) {
+				var url = "http://google.com";
+				Ti.API.info("try to call parent here");
+					var origindir = location.href.replace(/[^/]*$/, '');
+      				window.postMessage(
+	                        url,
+	                        // e.url,
+	                        origindir
+	                );
+			         //        
+			         //        // can't reach parent
+							// window.parent.postMessage(
+			    //                     e.url,
+			    //                     origindir
+			    //             );
+			    			// var event = new CustomEvent('messagefromchild', { url: e.url});
+			    			// window.dispatchEvent(event);					
+
+	      	});
+		},2000);
+	}
+
+	</script>
+</head>
+<body style="margin:0px;padding:20%;overflow:hidden" onload="setUpWithScript();">
+    <div class="centered">File inside iframe...</div>
+    	<button onclick="Ti.App.fireEvent('app:fromWebView', { message: 'event fired from WebView, handled in Titanium' });">fire app:fromWebView</button>
+</body> 
+</html>

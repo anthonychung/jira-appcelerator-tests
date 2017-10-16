@@ -9,8 +9,11 @@ function runTest1(){
 }
 
 function runTest2(){
+	// @rainer switch these to test
+	
 	Alloy.createController("test",{
 		// url: "iframetest/index-withiframe.html"
+		// url: "iframetest/index-postmessage.html"
 		url: "iframetest/index-withiframe-withscriptinchild.html"
 	}).getView().open();
 }

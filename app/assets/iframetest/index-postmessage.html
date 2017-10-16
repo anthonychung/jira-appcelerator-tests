@@ -1,0 +1,29 @@
+<html>
+	<head>
+	<script>
+		function setUp(){
+	        alert('setup the index: parent knows frames length '+window.frames.length);
+
+        	setTimeout(function(){
+			  	var win = document.getElementById("iframe").contentWindow;
+				// win.addEventListener("messagefromchild", function(e){
+	        	alert('inside parent 1');
+				
+				win.addEventListener("message", function(e){
+		        	alert('inside parent 2');
+			        // document.getElementById("myiframe").src = e.url;
+			        document.getElementById("myiframe").src = e.data;
+				}, false);
+			},1000);  
+		}
+	</script>
+	</head>
+	<body onload="setUp()">
+	<!-- <body> -->
+		<!-- if loaded dynamic html needs full path from resources folder "iframetest/blank.html"-->
+		<!-- but if blob with baseurl then just put the relative blank.html -->
+	<!-- <iframe id="myiframe" src="blank.html" frameborder="0" style="overflow:hidden;height:100vh;width:100vw" ></iframe> -->
+	<iframe id="myiframe" src="blank_withscript_postmessage.html"></iframe>
+	<!-- <iframe id="myiframe" src="blank.html" ></iframe> -->
+	</body>
+</html>
