@@ -5,6 +5,10 @@
 	        alert('setup the index: parent knows frames length '+window.frames.length);
 
         	setTimeout(function(){
+
+        		// #rainer this needs different help to access the iframe, test different onload delays when the document is to be ready.
+        		// and to set up postMessage api listeners
+        		
 			  	var win = document.getElementById("iframe").contentWindow;
 				// win.addEventListener("messagefromchild", function(e){
 	        	alert('inside parent 1');
