@@ -1,0 +1,17 @@
+<html>
+	<head>
+	<script>
+		function setUp(){
+	        alert('setup the index '+window.frames.length);
+		}
+	</script>
+	</head>
+	<body onload="setUp()">
+	<!-- <body> -->
+		<!-- if loaded dynamic html needs full path from resources folder "iframetest/blank.html"-->
+		<!-- but if blob with baseurl then just put the relative blank.html -->
+	<!-- <iframe id="myiframe" src="blank.html" frameborder="0" style="overflow:hidden;height:100vh;width:100vw" ></iframe> -->
+	<iframe id="myiframe" src="blank_withscript.html"></iframe>
+	<!-- <iframe id="myiframe" src="blank.html" ></iframe> -->
+	</body>
+</html>
