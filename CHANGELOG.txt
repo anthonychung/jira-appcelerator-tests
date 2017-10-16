@@ -1,1 +1,13 @@
-Place your change log text here.  This file will be incorporated with your app at package time.
+# Changelog
+
+# Todo
+- try to communicate from child to parent via postMessage 
+
+
+# 20171016
+- uploading setData with blob and baseURL option
+- showing that Ti.App.addEventListener works even with an iframe if the listeners are added onto the child.
+- note that the parent is able to count the correct number of frames.
+- but the child can't access the parent through window.top,
+- need another way to communicate with the parent.
+- e.g. maybe via postMessage
