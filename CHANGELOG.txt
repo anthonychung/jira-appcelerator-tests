@@ -6,8 +6,8 @@
 
 # 20171016
 - uploading setData with blob and baseURL option
-- showing that Ti.App.addEventListener works even with an iframe if the listeners are added onto the child.
-- note that the parent is able to count the correct number of frames.
+- showing that Ti.App.addEventListener works even with an iframe if the listeners are added onto the child "blank_withscript.html".
+- note that the parent inline jscript is able to count the correct number of frames.
 - but the child can't access the parent through window.top,
 - need another way to communicate with the parent.
 - e.g. maybe via postMessage
