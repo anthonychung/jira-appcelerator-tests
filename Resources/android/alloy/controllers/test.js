@@ -19,23 +19,33 @@ function Controller() {
         var file = Ti.Filesystem.getFile(outputDirectory, _urlpath);
         Ti.API.info("fileexists " + file.exists());
         var urlpath = file.nativePath;
-        return urlpath;
+        var blob = file.read();
+        var params = {
+            blob: blob,
+            html: blob.text,
+            url: urlpath
+        };
+        file = null;
+        return params;
     }
     function closeWindow() {
         $.window.close();
     }
     function setupWeb(_url) {
         var path = _url;
-        var url = getResourcePath(path);
+        var params = getResourcePath(path);
         var options = {
             zIndex: 9,
             top: 50,
             height: Ti.UI.FILL,
             width: Ti.UI.FILL,
-            enableJavascriptInterface: true,
-            url: url
+            enableJavascriptInterface: true
         };
         web = Ti.UI.createWebView(options);
+        web.setData(params.blob, {
+            baseURL: "file:///android_asset/Resources/iframetest",
+            mimeType: "text/html"
+        });
         $.window.add(web);
     }
     function start() {
