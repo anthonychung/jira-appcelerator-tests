@@ -10,7 +10,8 @@ function runTest1(){
 
 function runTest2(){
 	Alloy.createController("test",{
-		url: "iframetest/index-withiframe.html"
+		// url: "iframetest/index-withiframe.html"
+		url: "iframetest/index-withiframe0withscriptinchild.html"
 	}).getView().open();
 }
 
