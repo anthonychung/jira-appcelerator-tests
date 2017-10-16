@@ -19,17 +19,16 @@
 			Ti.App.addEventListener("app:fromTitanium", function(e) {
 				Ti.API.info("info: "+window.top.frames.length);
 				Ti.API.info("info: "+top.frames.length);
+				Ti.API.info("info parent.document.frames: "+parent.document.frames.length);
+				alert('inside blank_withscript'+e.message);
 	      	});
 		},2000);
 	}
 
-
-		</script>
+	</script>
 </head>
 <body style="margin:0px;padding:20%;overflow:hidden" onload="setUpWithScript();">
     <div class="centered">File inside iframe...</div>
     	<button onclick="Ti.App.fireEvent('app:fromWebView', { message: 'event fired from WebView, handled in Titanium' });">fire app:fromWebView</button>
-		<button onclick="Ti.App.fireEvent('app:fromTitanium', { message: 'event fired from WebView, handled in webview' });">fire app:fromTitanium</button>
-		<button onclick="Ti.App.fireEvent('app:fromTitanium:root', { message: 'event fired from WebView, handled in webview' });">fire app:fromTitanium</button>
 </body> 
 </html>
