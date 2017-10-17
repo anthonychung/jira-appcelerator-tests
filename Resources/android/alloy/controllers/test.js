@@ -50,10 +50,7 @@ function Controller() {
             count += 1;
             if (false == loaded) {
                 loaded = true;
-                web.setData(params.blob, {
-                    baseURL: "file:///android_asset/Resources/iframetest",
-                    mimeType: "text/html"
-                });
+                web.setUrl(params.url);
             }
         });
         $.window.add(web);

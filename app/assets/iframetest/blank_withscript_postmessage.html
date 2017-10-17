@@ -21,12 +21,14 @@
 			Ti.App.addEventListener("app:fromTitanium", function(e) {
 				var url = "http://google.com";
 				Ti.API.info("try to call parent here");
-					var origindir = location.href.replace(/[^/]*$/, '');
-      				window.postMessage(
-	                        url,
-	                        // e.url,
-	                        origindir
-	                );
+				var origindir = location.href.replace(/[^/]*$/, '');
+  				// window.opener.postMessage(
+  				// parent.postMessage(
+  				window.parent.postMessage(
+                        url,
+                        // e.url,
+                        origindir
+                );
 			         //        
 			         //        // can't reach parent
 							// window.parent.postMessage(

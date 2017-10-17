@@ -4,21 +4,25 @@
 		function setUp(){
 	        alert('setup the index: parent knows frames length '+window.frames.length);
 
-        	setTimeout(function(){
 
         		// #rainer this needs different help to access the iframe, test different onload delays when the document is to be ready.
         		// and to set up postMessage api listeners
         		
-			  	var win = document.getElementById("iframe").contentWindow;
+			  	// var win = document.getElementById("iframe").contentWindow;
 				// win.addEventListener("messagefromchild", function(e){
-	        	alert('inside parent 1');
 				
-				win.addEventListener("message", function(e){
-		        	alert('inside parent 2');
-			        // document.getElementById("myiframe").src = e.url;
-			        document.getElementById("myiframe").src = e.data;
-				}, false);
-			},1000);  
+				// window.addEventListener("message", function(e){
+			 //        document.getElementById("myiframe").src = e.data;
+				// }, false);
+
+				var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+				var eventer = window[eventMethod];
+				var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+				// Listen to message from child window
+				eventer(messageEvent,function(e) {
+				  alert('parent received message!:  ',e.data);
+				},false);
 		}
 	</script>
 	</head>

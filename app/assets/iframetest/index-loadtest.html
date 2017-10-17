@@ -1,13 +1,16 @@
 <html>
 	<head>
 	<script>
-		function setUp(){
-	        alert('setup the index: parent knows frames length '+window.frames.length);
+	        // alert('setup the index: parent knows frames length '+window.frames.length);
 
 
         		// #rainer this needs different help to access the iframe, test different onload delays when the document is to be ready.
         		// and to set up postMessage api listeners
-        		
+        		document.addEventListener('DOMContentLoaded', function() {
+        			Ti.API.info("TEST HERE");
+				  	document.getElementById("myiframe").src = "http://google.com";
+				  });
+
 			  	// var win = document.getElementById("iframe").contentWindow;
 				// win.addEventListener("messagefromchild", function(e){
 				
@@ -15,18 +18,11 @@
 			 //        document.getElementById("myiframe").src = e.data;
 				// }, false);
 
-				var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
-				var eventer = window[eventMethod];
-				var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
-
-				// Listen to message from child window
-				eventer(messageEvent,function(e) {
-				  alert('parent received message!:  ',e.data);
-				},false);
-		}
+				
+		
 	</script>
 	</head>
-	<body onload="setUp()">
+	<body  >
 	<!-- <body> -->
 		<!-- if loaded dynamic html needs full path from resources folder "iframetest/blank.html"-->
 		<!-- but if blob with baseurl then just put the relative blank.html -->
