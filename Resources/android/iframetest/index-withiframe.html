@@ -1,6 +1,8 @@
 <html>
 	<head>
 		<script>
+					Ti.API.info('inside parent called');
+			
 					Ti.App.addEventListener("app:fromTitanium", function(e) {
 			        	alert(e.message);
 			      	});

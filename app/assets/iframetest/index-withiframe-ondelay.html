@@ -1,27 +1,27 @@
 <html>
 	<head>
+		<script src="underscore.min.js" type="text/javascript"></script>
 		<script>
 			document.addEventListener('DOMContentLoaded', function() {
 				// ti.api can be accessed after domcontentloaded on parent page
 				// use this instead of body onload
 				Ti.API.info('DOMContentLoaded called');
 				// can't access document until it is loaded
-			  	document.getElementById("myiframe").src = "http://google.com";
-
-						
+			  	// document.getElementById("myiframe").src = "http://google.com";
 			  });
 
 			function setUp(){
 				Ti.API.info('setup called');
 
-				setTimeout(function(){
+				// _.defer(function(){
+				// setTimeout(function(){
 				  	// when can ti.app be accessed
 				  	// settimeout is not working in hhere
 					Ti.App.addEventListener("app:fromTitanium", function(e) {
 						Ti.API.info('onside');
 			        	alert(e.message);
 			      	});
-				},2000);
+				// },2000);
 
 			}
 		</script>

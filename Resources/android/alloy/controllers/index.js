@@ -15,7 +15,7 @@ function Controller() {
     }
     function runTest2() {
         Alloy.createController("test", {
-            url: "iframetest/index-withiframe-ondelay.html"
+            url: "iframetest/index-withiframe-tests.html"
         }).getView().open();
     }
     function start() {

@@ -1,0 +1,39 @@
+<html>
+	<head>
+	<script>
+
+	if (window != top) {
+	    parent.postMessage({fromExtension:true}, '*');
+	    addEventListener('message', function(event) {
+	        if (event.data && event.data.inserHTML) {
+	            document.execCommand('insertHTML', false, event.data.insertHTML);
+	        }
+	    });
+	} else {
+	    var test_html = 'test string';
+	    // Explanation of injection at https://stackoverflow.com/a/9517879/938089 :
+	    // Run code in the context of the page, so that the `contentWindow`
+	    //  property becomes accessible
+	    var script = document.createElement('script');
+	    script.textContent = '(' + function(s_html) {
+	        addEventListener('message', function(event) {
+	            if (event.data.fromExtension === true) {
+	                var iframe = document.getElementById('myiframe');
+	                if (iframe && (iframe.contentWindow === event.source)) {
+	                    // Window recognised, post message back
+	                    iframe.contentWindow.postMessage({insertHTML: s_html}, '*');
+	                }
+	            }
+	        });
+	    } + ')(' + JSON.stringify(test_html) + ');';
+	    (document.head||document.documentElement).appendChild(script);
+	    script.parentNode.removeChild(script);
+	}
+	</script>
+	</head>
+	<body >
+	
+	<iframe id="myiframe" src="file:///android_asset/Resources/iframetest/blank.html"></iframe>
+	
+	</body>
+</html>
