@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<script>
+			function setUp(){
+				setTimeout(
+					function(){
+						Ti.API.info('setup called');
+						Ti.App.addEventListener("app:fromTitanium", function(e) {
+				        	alert(e.message);
+				      	});
+						
+					}
+					, 3000
+				);
+			}
+		</script>
+	</head>
+	<body onload="setUp();">
+		<!-- sethtml -->
+	<!-- <iframe id="myiframe" src="iframetest/blank.html"></iframe> -->
+	<!-- seturl -->
+	<iframe id="myiframe" src="blank.html"></iframe>
+	</body>
+</html>

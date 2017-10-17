@@ -37,16 +37,32 @@ function setupWeb(_url){
 		height: Ti.UI.FILL,
 		width: Ti.UI.FILL,
 		enableJavascriptInterface:true,
+		// url:""
+		html:""
 		// url: params.url,
 		// html: params.html
 	};
 
 	web = Ti.UI.createWebView(options);
 
-	web.setData(params.blob,{
-		baseURL: "file:///android_asset/Resources/iframetest",
-		// baseURL: Ti.Filesystem.resourcesDirectory,
-		mimeType: "text/html"
+	var loaded=false;
+	var count=1;
+
+	web.addEventListener('load',function(){
+		Ti.API.info('webview load count '+count);
+		count = count +1;
+		if(loaded == false){
+			// setTimeout(function(){
+				loaded = true;
+				web.setData(params.blob,{
+					baseURL: "file:///android_asset/Resources/iframetest",
+					// baseURL: Ti.Filesystem.resourcesDirectory,
+					mimeType: "text/html"
+				});
+				// web.setUrl(params.url);
+				// web.setHtml(params.html);
+			// },3000);
+		}
 	});
 
 

@@ -39,12 +39,22 @@ function Controller() {
             top: 50,
             height: Ti.UI.FILL,
             width: Ti.UI.FILL,
-            enableJavascriptInterface: true
+            enableJavascriptInterface: true,
+            html: ""
         };
         web = Ti.UI.createWebView(options);
-        web.setData(params.blob, {
-            baseURL: "file:///android_asset/Resources/iframetest",
-            mimeType: "text/html"
+        var loaded = false;
+        var count = 1;
+        web.addEventListener("load", function() {
+            Ti.API.info("webview load count " + count);
+            count += 1;
+            if (false == loaded) {
+                loaded = true;
+                web.setData(params.blob, {
+                    baseURL: "file:///android_asset/Resources/iframetest",
+                    mimeType: "text/html"
+                });
+            }
         });
         $.window.add(web);
     }
