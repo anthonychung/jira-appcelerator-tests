@@ -54,12 +54,12 @@ function setupWeb(_url){
 		if(loaded == false){
 			// setTimeout(function(){
 				loaded = true;
-				// web.setData(params.blob,{
-				// 	baseURL: "file:///android_asset/Resources/iframetest",
-				// 	// baseURL: Ti.Filesystem.resourcesDirectory,
-				// 	mimeType: "text/html"
-				// });
-				web.setUrl(params.url);
+				web.setData(params.blob,{
+					baseURL: "file:///android_asset/Resources/iframetest",
+					// baseURL: Ti.Filesystem.resourcesDirectory,
+					mimeType: "text/html"
+				});
+				// web.setUrl(params.url);
 				// web.setHtml(params.html);
 			// },3000);
 		}
