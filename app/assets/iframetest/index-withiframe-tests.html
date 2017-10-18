@@ -1,33 +1,47 @@
 <html>
-	<head>
-		<script>
-			Ti.API.info('inside parent called');
-			document.addEventListener('DOMContentLoaded', function() {
-					Ti.API.info('inside DOMContentLoaded called');
+<head>
+<script>
 
-			});
-				function setUp(){
-				  	// document.getElementById("myiframe").src = "http://google.com";
-				  	
-				  	// // note that this works
-					Ti.API.info('inside innerHTML'+
-						document.getElementById("myiframe").contentWindow.document.body.innerHTML
-						);
-				  	
-					// failing
-					// setTimeout(function(){
-					// Ti.API.info('setup called');
-					// 	Ti.App.addEventListener("app:fromTitanium", function(e) {
-				 //        	alert(e);
-				 //      	});
+Ti.API.info('inside parent called');
 
-					// },1000);
-				}
+document.addEventListener('DOMContentLoaded', function() {
+	Ti.API.info('inside DOMContentLoaded called');
+	
+	document.getElementById("myiframe").contentWindow.onload=function(){
+		Ti.API.info('iframe onload contentWindow');
+		setTimeout(function(){
+			Ti.API.info('iframe onload contentWindow inside timeout');
+			Ti.App.addEventListener("app:fromTitanium", function(e) {
+				alert(e);
+				});
+		},3000);
 
-				function testFn(e){
-		        	alert('testfn called');
-				}
-		</script>
+
+	};
+});
+
+function setUp(){
+  	// document.getElementById("myiframe").src = "http://google.com";
+  	
+  	// // note that this works
+	// Ti.API.info('inside innerHTML'+
+	// 	document.getElementById("myiframe").contentWindow.document.body.innerHTML
+	// 	);
+
+	// failing
+	// setTimeout(function(){
+	// Ti.API.info('setup called');
+	// 	Ti.App.addEventListener("app:fromTitanium", function(e) {
+ //        	alert(e);
+ //      	});
+
+	// },1000);
+}
+
+function testFn(e){
+	alert('testfn called');
+}
+</script>
 	</head>
 	<body onload="setUp();">
 	<iframe id="myiframe" src="blank.html"  frameborder="0" style="overflow:hidden;height:100vh;width:100vw"></iframe>
