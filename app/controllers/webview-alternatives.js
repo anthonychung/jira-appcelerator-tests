@@ -125,8 +125,9 @@ function setupWeb(_url){
 
   });
 
-	web.addEventListener('load',function(){
+	web.addEventListener('load',function(e){
 		Ti.API.info('webview load count '+count);
+		Ti.API.info('webview load e.url '+e.url);
 		// if(loaded == false){
 			// setTimeout(function(){
 				// loaded = true;
