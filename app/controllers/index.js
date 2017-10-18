@@ -26,11 +26,11 @@ function runTest3(){
 	// @rainer switch these to test
 	
 	Alloy.createController("webview-alternatives",{
-		url: "iframetest/index-withiframe.html"
+		// url: "iframetest/index-withiframe.html"
 		// url: "iframetest/remote_test.html"
 		// url: "iframetest/index-withiframe-tests.html"
 		// url: "iframetest/index-withiframe-withscriptinchild.html"
-		// url: "iframetest/index-withiframe-ondelay.html"
+		url: "iframetest/index-withiframe-ondelay.html"
 		// url: "iframetest/index-postmessage.html"
 		// url: "iframetest/index-documentwindow.html"
 		// url: "iframetest/index-loadtest.html"

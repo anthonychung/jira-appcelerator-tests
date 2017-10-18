@@ -20,7 +20,7 @@ function Controller() {
     }
     function runTest3() {
         Alloy.createController("webview-alternatives", {
-            url: "iframetest/index-withiframe.html"
+            url: "iframetest/index-withiframe-ondelay.html"
         }).getView().open();
     }
     function start() {
@@ -85,7 +85,7 @@ function Controller() {
         height: 50,
         borderRadius: 5,
         borderColor: "#ccc",
-        title: "TEST with crosswalk",
+        title: "TEST with alternatives",
         id: "__alloyId2"
     });
     $.__views.index.add($.__views.__alloyId2);
