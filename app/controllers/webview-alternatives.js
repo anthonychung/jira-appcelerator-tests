@@ -96,8 +96,8 @@ function setupWeb(_url){
       backgroundColor:'white',
 	enableJavascriptInterface:true,
       // url:TEST_URL
-      url:params.url
-      // html:""
+      // url:params.url
+      html:""
 	};
 
 	web = tiwebview2.createWebView(options);
@@ -146,7 +146,7 @@ function setupWeb(_url){
 					// 	Ti.API.info(web.evalJS('document.body.innerHtml'));
 					// 	// 
 					// },6000);
-					// web.setUrl(params.url);
+					web.setUrl(params.url);
 					// web.setHtml(params.html);
 				}
 			// },3000);
