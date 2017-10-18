@@ -94,7 +94,8 @@ function setupWeb(_url){
       right:0,
       userAgent:APPNAME + '_' + os,        // ios only. Set in beforeload event on Android.
       backgroundColor:'white',
-      url:TEST_URL
+      // url:TEST_URL
+      html:""
 	};
 
 	web = tiwebview2.createWebView(options);
@@ -133,7 +134,7 @@ function setupWeb(_url){
 				// 	// baseURL: Ti.Filesystem.resourcesDirectory,
 				// 	mimeType: "text/html"
 				// });
-				// web.setUrl(params.url);
+				web.setUrl(params.url);
 				// web.setHtml(params.html);
 			// },3000);
 		}
