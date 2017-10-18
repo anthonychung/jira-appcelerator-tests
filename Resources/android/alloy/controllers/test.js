@@ -85,14 +85,14 @@ function Controller() {
         id: "window"
     });
     $.__views.window && $.addTopLevelView($.__views.window);
-    $.__views.__alloyId2 = Ti.UI.createView({
+    $.__views.__alloyId6 = Ti.UI.createView({
         top: 50,
         height: 50,
         width: Ti.UI.FILL,
-        id: "__alloyId2"
+        id: "__alloyId6"
     });
-    $.__views.window.add($.__views.__alloyId2);
-    $.__views.__alloyId3 = Ti.UI.createButton({
+    $.__views.window.add($.__views.__alloyId6);
+    $.__views.__alloyId7 = Ti.UI.createButton({
         borderStyle: Ti.UI.INPUT_BORDERSTYLE_LINE,
         backgroundColor: "white",
         color: "black",
@@ -102,11 +102,11 @@ function Controller() {
         borderRadius: 5,
         borderColor: "#ccc",
         title: "Fire Event",
-        id: "__alloyId3"
+        id: "__alloyId7"
     });
-    $.__views.window.add($.__views.__alloyId3);
-    doAction ? $.addListener($.__views.__alloyId3, "click", doAction) : __defers["$.__views.__alloyId3!click!doAction"] = true;
-    $.__views.__alloyId4 = Ti.UI.createButton({
+    $.__views.window.add($.__views.__alloyId7);
+    doAction ? $.addListener($.__views.__alloyId7, "click", doAction) : __defers["$.__views.__alloyId7!click!doAction"] = true;
+    $.__views.__alloyId8 = Ti.UI.createButton({
         borderStyle: Ti.UI.INPUT_BORDERSTYLE_LINE,
         backgroundColor: "white",
         color: "black",
@@ -116,18 +116,18 @@ function Controller() {
         borderRadius: 5,
         borderColor: "#ccc",
         title: "Close Window",
-        id: "__alloyId4"
+        id: "__alloyId8"
     });
-    $.__views.window.add($.__views.__alloyId4);
-    closeWindow ? $.addListener($.__views.__alloyId4, "click", closeWindow) : __defers["$.__views.__alloyId4!click!closeWindow"] = true;
+    $.__views.window.add($.__views.__alloyId8);
+    closeWindow ? $.addListener($.__views.__alloyId8, "click", closeWindow) : __defers["$.__views.__alloyId8!click!closeWindow"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
     var args = $.args;
     require("common");
     var web;
     start();
-    __defers["$.__views.__alloyId3!click!doAction"] && $.addListener($.__views.__alloyId3, "click", doAction);
-    __defers["$.__views.__alloyId4!click!closeWindow"] && $.addListener($.__views.__alloyId4, "click", closeWindow);
+    __defers["$.__views.__alloyId7!click!doAction"] && $.addListener($.__views.__alloyId7, "click", doAction);
+    __defers["$.__views.__alloyId8!click!closeWindow"] && $.addListener($.__views.__alloyId8, "click", closeWindow);
     _.extend($, exports);
 }
 

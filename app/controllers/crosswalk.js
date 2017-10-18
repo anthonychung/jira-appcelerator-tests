@@ -38,8 +38,8 @@ function setupWeb(_url){
 		width: Ti.UI.FILL,
 		enableJavascriptInterface:true,
 		// url:""
-		html:""
-		// url: params.url,
+		// html:""
+		url: params.url,
 		// html: params.html
 	};
 
@@ -62,7 +62,7 @@ function setupWeb(_url){
 				// 	// baseURL: Ti.Filesystem.resourcesDirectory,
 				// 	mimeType: "text/html"
 				// });
-				web.setUrl(params.url);
+				// web.setUrl(params.url);
 				// web.setHtml(params.html);
 			// },3000);
 		}

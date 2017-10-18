@@ -1,0 +1,7 @@
+<Alloy>
+	<Window id="window" class="container">
+	<View class="block" top="50"/>
+	<Button onClick="doAction" class="viewButton" title="Fire Event"/>
+	<Button onClick="closeWindow" class="viewButton2" title="Close Window"/>
+	</Window>
+</Alloy>

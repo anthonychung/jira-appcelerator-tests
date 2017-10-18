@@ -22,6 +22,20 @@ function runTest2(){
 	}).getView().open();
 }
 
+function runTest3(){
+	// @rainer switch these to test
+	
+	Alloy.createController("crosswalk",{
+		// url: "iframetest/index-withiframe.html"
+		url: "iframetest/index-withiframe-tests.html"
+		// url: "iframetest/index-withiframe-withscriptinchild.html"
+		// url: "iframetest/index-withiframe-ondelay.html"
+		// url: "iframetest/index-postmessage.html"
+		// url: "iframetest/index-documentwindow.html"
+		// url: "iframetest/index-loadtest.html"
+	}).getView().open();
+}
+
 
 function start(){
 	Ti.App.addEventListener('app:fromWebView', function(e) {

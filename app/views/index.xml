@@ -2,5 +2,6 @@
 	<Window id="index" class="container">
 		<Button onClick="runTest1" class="block" title="TEST without iframe" />
 		<Button onClick="runTest2" class="block" title="TEST with iframe" />
+		<Button onClick="runTest3" class="block" title="TEST with crosswalk" />
 	</Window>
 </Alloy>
