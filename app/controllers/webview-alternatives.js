@@ -94,6 +94,8 @@ function setupWeb(_url){
       right:0,
       userAgent:APPNAME + '_' + os,        // ios only. Set in beforeload event on Android.
       backgroundColor:'white',
+		enableJavascriptInterface:true,
+      
       // url:TEST_URL
       html:""
 	};
@@ -125,19 +127,29 @@ function setupWeb(_url){
 
 	web.addEventListener('load',function(){
 		Ti.API.info('webview load count '+count);
-		count = count +1;
-		if(loaded == false){
+		// if(loaded == false){
 			// setTimeout(function(){
-				loaded = true;
-				// web.setData(params.blob,{
-				// 	baseURL: "file:///android_asset/Resources/iframetest",
-				// 	// baseURL: Ti.Filesystem.resourcesDirectory,
-				// 	mimeType: "text/html"
-				// });
-				web.setUrl(params.url);
-				// web.setHtml(params.html);
+				// loaded = true;
+				
+				if(count==1){
+					// web.setData(params.blob,{
+					// 	baseURL: "file:///android_asset/Resources/iframetest",
+					// 	// baseURL: Ti.Filesystem.resourcesDirectory,
+					// 	mimeType: "text/html"
+					// });
+
+					// setTimeout(function(){
+					// 	// var code = '(function(arg){ testfn("test"); })(["<your args>"])';
+					// 	// var code = 'document.title';
+					// 	Ti.API.info(web.evalJS('document.body.innerHtml'));
+					// 	// 
+					// },6000);
+					// web.setUrl(params.url);
+					web.setHtml(params.html);
+				}
 			// },3000);
-		}
+		// }
+		count = count +1;
 	});
 
 
