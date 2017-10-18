@@ -94,10 +94,10 @@ function setupWeb(_url){
       right:0,
       userAgent:APPNAME + '_' + os,        // ios only. Set in beforeload event on Android.
       backgroundColor:'white',
-		enableJavascriptInterface:true,
-      
+	enableJavascriptInterface:true,
       // url:TEST_URL
-      html:""
+      url:params.url
+      // html:""
 	};
 
 	web = tiwebview2.createWebView(options);
@@ -128,6 +128,7 @@ function setupWeb(_url){
 	web.addEventListener('load',function(e){
 		Ti.API.info('webview load count '+count);
 		Ti.API.info('webview load e.url '+e.url);
+		Ti.API.info('webview load e.loaded '+e.loaded);
 		// if(loaded == false){
 			// setTimeout(function(){
 				// loaded = true;
@@ -146,7 +147,7 @@ function setupWeb(_url){
 					// 	// 
 					// },6000);
 					// web.setUrl(params.url);
-					web.setHtml(params.html);
+					// web.setHtml(params.html);
 				}
 			// },3000);
 		// }
