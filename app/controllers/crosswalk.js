@@ -73,6 +73,7 @@ function setupWebCrosswalk(_url){
 }
 
 function setupWeb(_url){
+	// THIS TEST IS FOR 'com.kosso.tiwebview2'
 	var path = _url;
 	var params = getResourcePath(path);
 

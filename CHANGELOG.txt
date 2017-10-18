@@ -4,6 +4,17 @@
 - try to communicate from child to parent via postMessage 
 
 
+# 20171018
+- 'com.kosso.tiwebview2', postmessage works. this is a custom webview
+- https://github.com/kosso/titanium-postmessage-webview/tree/master/tiwebview2_android
+
+```
+// uses for testing
+		url: "iframetest/remote_test.html"
+
+```
+- upgraded crosswalk still crashes when trying to use ti.app.addeventlistener
+
 # 20171016
 - uploading setData with blob and baseURL option
 - showing that Ti.App.addEventListener works even with an iframe if the listeners are added onto the child "blank_withscript.html".
