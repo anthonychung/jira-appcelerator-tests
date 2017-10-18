@@ -96,8 +96,8 @@ function setupWeb(_url){
       backgroundColor:'white',
 	enableJavascriptInterface:true,
       // url:TEST_URL
-      // url:params.url
-      html:""
+      url:params.url
+      // html:""
 	};
 
 	web = tiwebview2.createWebView(options);
@@ -125,16 +125,28 @@ function setupWeb(_url){
 
   });
 
+  var stoploading = false;
 	web.addEventListener('load',function(e){
 		Ti.API.info('webview load count '+count);
 		Ti.API.info('webview load e.url '+e.url);
 		Ti.API.info('webview load e.loaded '+e.loaded);
 		Ti.API.info('webview load e.loadedinjection '+e.loadedinjection);
+		Ti.API.info('webview load stoploading '+stoploading);
+
 		// if(loaded == false){
 			// setTimeout(function(){
 				// loaded = true;
-				
-				if(count==1){
+				if(e.url.includes("index") == false && stoploading != true){
+					// web.setUrl(params.url);
+					web.setData(params.blob,{
+						baseURL: "file:///android_asset/Resources/iframetest",
+						// baseURL: Ti.Filesystem.resourcesDirectory,
+						mimeType: "text/html"
+					});
+				}else{
+					stoploading = true;
+				}
+				// if(count==1){
 					// web.setData(params.blob,{
 					// 	baseURL: "file:///android_asset/Resources/iframetest",
 					// 	// baseURL: Ti.Filesystem.resourcesDirectory,
@@ -147,9 +159,7 @@ function setupWeb(_url){
 					// 	Ti.API.info(web.evalJS('document.body.innerHtml'));
 					// 	// 
 					// },6000);
-					web.setUrl(params.url);
 					// web.setHtml(params.html);
-				}
 			// },3000);
 		// }
 		count = count +1;
