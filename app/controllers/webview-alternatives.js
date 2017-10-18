@@ -96,8 +96,8 @@ function setupWeb(_url){
       backgroundColor:'white',
 	enableJavascriptInterface:true,
       // url:TEST_URL
-      url:params.url
-      // html:""
+      // url:params.url
+      html:""
 	};
 
 	web = tiwebview2.createWebView(options);
@@ -137,12 +137,14 @@ function setupWeb(_url){
 			// setTimeout(function(){
 				// loaded = true;
 				if(e.url.includes("index") == false && stoploading != true){
-					// web.setUrl(params.url);
-					web.setData(params.blob,{
-						baseURL: "file:///android_asset/Resources/iframetest",
-						// baseURL: Ti.Filesystem.resourcesDirectory,
-						mimeType: "text/html"
-					});
+					web.setUrl(params.url);
+					// web.setData(params.blob,{
+					// 	baseURL: "file:///android_asset/Resources/iframetest",
+					// 	// baseURL: Ti.Filesystem.resourcesDirectory,
+					// 	mimeType: "text/html"
+					// });
+					// web.setHtml(params.html);
+					
 				}else{
 					stoploading = true;
 				}

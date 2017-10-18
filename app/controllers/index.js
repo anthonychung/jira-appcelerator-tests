@@ -31,6 +31,7 @@ function runTest3(){
 		// url: "iframetest/index-withiframe-tests.html"
 		// url: "iframetest/index-withiframe-withscriptinchild.html"
 		url: "iframetest/index-withiframe-ondelay.html"
+		// url: "iframetest/index-withiframe-ondelay-sethtml.html"
 		// url: "iframetest/index-postmessage.html"
 		// url: "iframetest/index-documentwindow.html"
 		// url: "iframetest/index-loadtest.html"

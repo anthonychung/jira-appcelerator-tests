@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				// ti.api can be accessed after domcontentloaded on parent page
+				// use this instead of body onload
+				Ti.API.info('DOMContentLoaded called');
+				// can't access document until it is loaded
+			  	// document.getElementById("myiframe").src = "http://google.com";
+			  });
+
+			function setUp(){
+				Ti.API.info('setup called');
+
+				// _.defer(function(){
+				setTimeout(function(){
+					Ti.API.info('setup called after delay');
+				  	// when can ti.app be accessed
+				  	// settimeout is not working in hhere
+				  	
+					// Android.postMessage(JSON.stringify({foo: 'Barbarbar babababar'}), '*'); 
+
+					Ti.App.addEventListener("app:fromTitanium", function(e) {
+						Ti.API.info('onside');
+			        	alert(e.message);
+			      	});
+				},6000);
+
+			}
+
+			function testfn(){
+				alert('testfn called');
+			}
+		</script>
+	</head>
+	<body onload="setUp();">
+		<!-- sethtml -->
+	<iframe id="myiframe" src="iframetest/blank.html"></iframe>
+	<!-- seturl or setdata-->
+	<!-- <iframe id="myiframe" src="blank.html"></iframe> -->
+	</body>
+</html>
