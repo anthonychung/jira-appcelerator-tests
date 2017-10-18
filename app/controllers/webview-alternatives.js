@@ -135,11 +135,11 @@ function setupWeb(_url){
 				// loaded = true;
 				
 				if(count==1){
-					web.setData(params.blob,{
-						baseURL: "file:///android_asset/Resources/iframetest",
-						// baseURL: Ti.Filesystem.resourcesDirectory,
-						mimeType: "text/html"
-					});
+					// web.setData(params.blob,{
+					// 	baseURL: "file:///android_asset/Resources/iframetest",
+					// 	// baseURL: Ti.Filesystem.resourcesDirectory,
+					// 	mimeType: "text/html"
+					// });
 
 					// setTimeout(function(){
 					// 	// var code = '(function(arg){ testfn("test"); })(["<your args>"])';
@@ -147,7 +147,7 @@ function setupWeb(_url){
 					// 	Ti.API.info(web.evalJS('document.body.innerHtml'));
 					// 	// 
 					// },6000);
-					// web.setUrl(params.url);
+					web.setUrl(params.url);
 					// web.setHtml(params.html);
 				}
 			// },3000);
