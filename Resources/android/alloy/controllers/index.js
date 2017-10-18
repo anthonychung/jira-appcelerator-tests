@@ -20,7 +20,7 @@ function Controller() {
     }
     function runTest3() {
         Alloy.createController("crosswalk", {
-            url: "iframetest/index-withiframe-tests.html"
+            url: "iframetest/remote_test.html"
         }).getView().open();
     }
     function start() {

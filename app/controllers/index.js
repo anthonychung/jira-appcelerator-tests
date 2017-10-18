@@ -27,7 +27,8 @@ function runTest3(){
 	
 	Alloy.createController("crosswalk",{
 		// url: "iframetest/index-withiframe.html"
-		url: "iframetest/index-withiframe-tests.html"
+		url: "iframetest/remote_test.html"
+		// url: "iframetest/index-withiframe-tests.html"
 		// url: "iframetest/index-withiframe-withscriptinchild.html"
 		// url: "iframetest/index-withiframe-ondelay.html"
 		// url: "iframetest/index-postmessage.html"

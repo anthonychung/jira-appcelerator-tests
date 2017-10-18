@@ -27,7 +27,7 @@ function closeWindow(){
 	$.window.close();
 }
 
-function setupWeb(_url){
+function setupWebCrosswalk(_url){
 	var path = _url;
 	var params = getResourcePath(path);
 
@@ -50,6 +50,76 @@ function setupWeb(_url){
 
 	var loaded=false;
 	var count=1;
+
+	web.addEventListener('load',function(){
+		Ti.API.info('webview load count '+count);
+		count = count +1;
+		if(loaded == false){
+			// setTimeout(function(){
+				loaded = true;
+				// web.setData(params.blob,{
+				// 	baseURL: "file:///android_asset/Resources/iframetest",
+				// 	// baseURL: Ti.Filesystem.resourcesDirectory,
+				// 	mimeType: "text/html"
+				// });
+				// web.setUrl(params.url);
+				// web.setHtml(params.html);
+			// },3000);
+		}
+	});
+
+
+	$.window.add(web);
+}
+
+function setupWeb(_url){
+	var path = _url;
+	var params = getResourcePath(path);
+
+	var tiwebview2 = require('com.kosso.tiwebview2'); // iOS and Android
+	var TEST_URL = path; // see file included in repo for postMessage examples.
+
+	var APPNAME = 'mL_Jira_Test';
+	// UserAgent 'MY_APP_ios' and 'MY_APP_android' will be created accordingly.
+	// We need to know what these are to to be able to provide the appropriate JS in the remote HTML.
+	// see: remote_test.html 
+
+	var os = Ti.Platform.osname;
+	var options = {
+      top:0,
+      bottom:0,
+      left:0,
+      zIndex:1,
+      right:0,
+      userAgent:APPNAME + '_' + os,        // ios only. Set in beforeload event on Android.
+      backgroundColor:'white',
+      url:TEST_URL
+	};
+
+	web = tiwebview2.createWebView(options);
+	
+	var loaded=false;
+	var count=1;
+
+  	web.addEventListener('messageFromWebview', function(e) {
+    Ti.API.info("messageFromWebview:", e.message);
+    if(typeof e.message === 'object'){
+      alert(JSON.stringify(e.message));
+    } else {
+      alert(e.message);  
+    }
+
+	// TODO: make android module convert to JSON Object
+    // Android verson still needs JSON.parse
+    // console.log(JSON.parse(e.message));
+  });
+
+  web.addEventListener('beforeload', function(e) {
+    console.log('webview beforeload : ');
+    // Set it now on Android
+    web.setUserAgent(APPNAME + '_' + os);
+
+  });
 
 	web.addEventListener('load',function(){
 		Ti.API.info('webview load count '+count);
