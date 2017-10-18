@@ -55,6 +55,7 @@
   </android>
     <modules>
         <module platform="android">com.universalavenue.ticrosswalk</module>
+        <module platform="android">com.kosso.tiwebview2</module>
     </modules>
   <deployment-targets>
     <target device="android">true</target>
