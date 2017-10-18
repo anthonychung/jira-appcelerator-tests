@@ -25,7 +25,7 @@ function runTest2(){
 function runTest3(){
 	// @rainer switch these to test
 	
-	Alloy.createController("crosswalk",{
+	Alloy.createController("webview-alternatives",{
 		// url: "iframetest/index-withiframe.html"
 		url: "iframetest/remote_test.html"
 		// url: "iframetest/index-withiframe-tests.html"
