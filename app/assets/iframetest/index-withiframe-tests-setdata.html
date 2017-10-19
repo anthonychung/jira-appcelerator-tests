@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		Ti.API.info('iframe onload contentWindow');
 		setTimeout(function(){
 			Ti.API.info('iframe onload contentWindow inside timeout');
-			Ti.App.addEventListener("app:fromTitanium", function(e) {
-				alert(e);
-				});
+			// Ti.App.addEventListener("app:fromTitanium", function(e) {
+			// 	alert(e);
+			// 	});
 		},3000);
 
 
@@ -21,8 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function setUp(){
+	Ti.API.info('in setup');
+
   	// document.getElementById("myiframe").src = "http://google.com";
-  	
+  	Ti.App.addEventListener("app:fromTitanium", function(e) {
+				alert("inside parent"+e);
+				});
   	// // note that this works
 	// Ti.API.info('inside innerHTML'+
 	// 	document.getElementById("myiframe").contentWindow.document.body.innerHTML
@@ -45,6 +49,11 @@ function testFnParent(e){
 	</head>
 	<body onload="setUp();">
 	<!-- <iframe id="myiframe" src="blank.html"  frameborder="0" style="overflow:hidden;height:100vh;width:100vw"></iframe> -->
-	<iframe id="myiframe" src="./blank_withscriptproxy.html"  frameborder="0" style="overflow:hidden;height:100vh;width:100vw"></iframe>
+
+	<!-- child js won't work with full path -->
+	<!-- <iframe id="myiframe" src="file:///android_asset/Resources/iframetest/blank_withscriptproxy.html"  frameborder="0" style="overflow:hidden;height:100vh;width:100vw"></iframe> -->
+	<!-- relative path works for setdata -->
+	<!-- <iframe id="myiframe" src="./blank_withscriptproxy.html"  frameborder="0" style="overflow:hidden;height:100vh;width:100vw"></iframe> -->
+	<iframe id="myiframe" src="./blank.html"  frameborder="0" style="overflow:hidden;height:100vh;width:100vw"></iframe>
 	</body>
 </html>
