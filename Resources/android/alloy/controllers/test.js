@@ -40,17 +40,21 @@ function Controller() {
             height: Ti.UI.FILL,
             width: Ti.UI.FILL,
             enableJavascriptInterface: true,
-            html: ""
+            url: params.url
         };
         web = Ti.UI.createWebView(options);
         var loaded = false;
         var count = 1;
-        web.addEventListener("load", function() {
+        web.addEventListener("load", function(e) {
             Ti.API.info("webview load count " + count);
             count += 1;
+            Ti.API.info("webview load e.url " + e.url);
             if (false == loaded) {
                 loaded = true;
-                web.setUrl(params.url);
+                setTimeout(function() {
+                    web.evalJS("testFnParent();");
+                    web.evalJS("testFnChild();");
+                }, 3e3);
             }
         });
         $.window.add(web);

@@ -38,8 +38,8 @@ function setupWeb(_url){
 		width: Ti.UI.FILL,
 		enableJavascriptInterface:true,
 		// url:""
-		html:""
-		// url: params.url,
+		// html:""
+		url: params.url,
 		// html: params.html
 	};
 
@@ -48,20 +48,23 @@ function setupWeb(_url){
 	var loaded=false;
 	var count=1;
 
-	web.addEventListener('load',function(){
+	web.addEventListener('load',function(e){
 		Ti.API.info('webview load count '+count);
 		count = count +1;
+		Ti.API.info('webview load e.url '+e.url);
 		if(loaded == false){
-			// setTimeout(function(){
-				loaded = true;
+			loaded = true;
+			setTimeout(function(){
+				web.evalJS("testFnParent();");
+				web.evalJS("testFnChild();");
 				// web.setData(params.blob,{
 				// 	baseURL: "file:///android_asset/Resources/iframetest",
 				// 	// baseURL: Ti.Filesystem.resourcesDirectory,
 				// 	mimeType: "text/html"
 				// });
-				web.setUrl(params.url);
+				// web.setUrl(params.url);
 				// web.setHtml(params.html);
-			// },3000);
+			},3000);
 		}
 	});
 

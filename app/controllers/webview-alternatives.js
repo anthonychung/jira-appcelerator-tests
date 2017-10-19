@@ -174,6 +174,7 @@ function setupWeb(_url){
 function start(){
 	cleanUp();
 	// setupWeb2("iframetest/index-withiframe.html");
+	// setupWebCrosswalk(args.url);
 	setupWeb(args.url);
 }
 
