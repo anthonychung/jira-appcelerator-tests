@@ -30,10 +30,10 @@ function testFnChild(e){
 	      	});
 		// },2000);
 	}
-	setUpWithScript();
+	
 	</script>
 </head>
-<body style="margin:0px;padding:20%;overflow:hidden">
+<body onload="setUpWithScript();" style="margin:0px;padding:20%;overflow:hidden">
     <div class="centered">File inside iframe...</div>
     	<button onclick="Ti.App.fireEvent('app:fromWebView', { message: 'event fired from WebView, handled in Titanium' });">fire app:fromWebView</button>
 </body> 
