@@ -51,7 +51,14 @@ function Controller() {
             Ti.API.info("webview load e.url " + e.url);
             if (false == loaded) {
                 loaded = true;
-                setTimeout(function() {}, 2e3);
+                web.setData(params.blob, {
+                    baseURL: "file:///android_asset/Resources/iframetest/index-withiframe-tests-setdata.html",
+                    mimeType: "text/html"
+                });
+                setTimeout(function() {
+                    web.evalJS("testFnParent();");
+                    web.evalJS("testFnChild();");
+                }, 2e3);
             }
         });
         $.window.add(web);

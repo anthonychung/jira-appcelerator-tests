@@ -54,17 +54,17 @@ function setupWeb(_url){
 		Ti.API.info('webview load e.url '+e.url);
 		if(loaded == false){
 			loaded = true;
-			// web.setData(params.blob,{
-			// 	baseURL: "file:///android_asset/Resources/iframetest/index-withiframe-tests-setdata.html",
-			// 	// baseURL: Ti.Filesystem.resourcesDirectory,
-			// 	mimeType: "text/html"
-			// });
+			web.setData(params.blob,{
+				baseURL: "file:///android_asset/Resources/iframetest/index-withiframe-tests-setdata.html",
+				// baseURL: Ti.Filesystem.resourcesDirectory,
+				mimeType: "text/html"
+			});
 			setTimeout(function(){
 				// can't call the parent
-				// web.evalJS("testFnParent();");
+				web.evalJS("testFnParent();");
 
 				// can call the child
-				// web.evalJS("testFnChild();");
+				web.evalJS("testFnChild();");
 
 
 				// web.setUrl(params.url);
