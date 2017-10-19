@@ -38,8 +38,8 @@ function setupWeb(_url){
 		width: Ti.UI.FILL,
 		enableJavascriptInterface:true,
 		// url:""
-		// html:""
-		url: params.url,
+		html:""
+		// url: params.url,
 		// html: params.html
 	};
 
@@ -54,17 +54,17 @@ function setupWeb(_url){
 		Ti.API.info('webview load e.url '+e.url);
 		if(loaded == false){
 			loaded = true;
+			web.setData(params.blob,{
+				baseURL: "file:///android_asset/Resources/iframetest/index-withiframe-tests-setdata.html",
+				// baseURL: Ti.Filesystem.resourcesDirectory,
+				mimeType: "text/html"
+			});
 			setTimeout(function(){
 				web.evalJS("testFnParent();");
 				web.evalJS("testFnChild();");
-				// web.setData(params.blob,{
-				// 	baseURL: "file:///android_asset/Resources/iframetest",
-				// 	// baseURL: Ti.Filesystem.resourcesDirectory,
-				// 	mimeType: "text/html"
-				// });
 				// web.setUrl(params.url);
 				// web.setHtml(params.html);
-			},3000);
+			},6000);
 		}
 	});
 
