@@ -2,7 +2,14 @@
 	<head>
 	<script>
 		function setUp(){
-	        alert('setup the index: parent knows frames length '+window.frames.length);
+			Ti.API.info('setup the index: parent knows frames length '+window.frames.length);
+			Ti.App.addEventListener("app:fromTitanium", function(e) {
+				Ti.API.info("parent info: "+window.top.frames.length);
+				Ti.API.info("parent info: "+top.frames.length);
+				alert('inside parent '+e.message);
+				// Ti.API.info("info does not work: parent.document.frames: "+parent.document.frames.length);
+				
+	      	});
 		}
 	</script>
 	</head>
@@ -11,7 +18,8 @@
 		<!-- if loaded dynamic html needs full path from resources folder "iframetest/blank.html"-->
 		<!-- but if blob with baseurl then just put the relative blank.html -->
 	<!-- <iframe id="myiframe" src="blank.html" frameborder="0" style="overflow:hidden;height:100vh;width:100vw" ></iframe> -->
-	<iframe id="myiframe" src="file:///android_asset/Resources/iframetest/blank_withscript.html" frameborder="0" style="overflow:hidden;height:100vh;width:100vw" ></iframe>
+	<iframe id="myiframe" src="./blank_withscript.html" frameborder="0" style="overflow:hidden;height:100vh;width:100vw" ></iframe>
+	<!-- <iframe id="myiframe" src="file:///android_asset/Resources/iframetest/blank_withscript.html" frameborder="0" style="overflow:hidden;height:100vh;width:100vw" ></iframe> -->
 	<!-- <iframe id="myiframe" src="blank.html" ></iframe> -->
 	</body>
 </html>
