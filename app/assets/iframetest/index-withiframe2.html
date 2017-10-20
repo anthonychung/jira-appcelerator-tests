@@ -1,0 +1,14 @@
+<html>
+	<head>
+		<script>
+					Ti.API.info('inside parent called');
+			
+					Ti.App.addEventListener("app:fromTitanium", function(e) {
+			        	alert(e.message);
+			      	});
+		</script>
+	</head>
+	<body>
+	<iframe id="myiframe" src="file:///android_asset/Resources/iframetest/blank.html"  frameborder="0" style="overflow:hidden;height:100vh;width:100vw" ></iframe>
+	</body>
+</html>

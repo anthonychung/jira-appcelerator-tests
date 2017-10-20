@@ -31,11 +31,12 @@ function runTest3(){
 	
 	Alloy.createController("webview-alternatives",{
 		// url: "iframetest/index-withiframe.html"
-		url: "iframetest/index-withiframe-tests-setdata.html"
+		// url: "iframetest/index-withiframe2.html"
+		// url: "iframetest/index-withiframe-tests-setdata.html"
 		
 		// url: "iframetest/remote_test.html"
 		// url: "iframetest/index-withiframe-tests.html"
-		// url: "iframetest/index-withiframe-withscriptinchild.html"
+		url: "iframetest/index-withiframe-withscriptinchild.html"
 		// url: "iframetest/index-withiframe-sameorigin.html"
 		// url: "iframetest/index-withiframe-ondelay.html"
 		// url: "iframetest/index-withiframe-ondelay-sethtml.html"
