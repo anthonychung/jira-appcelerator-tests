@@ -15,12 +15,12 @@ function Controller() {
     }
     function runTest2() {
         Alloy.createController("test", {
-            url: "iframetest/index-withiframe-tests-setdata.html"
+            url: "iframetest/index-withiframe.html"
         }).getView().open();
     }
     function runTest3() {
         Alloy.createController("webview-alternatives", {
-            url: "iframetest/index-withiframe-withscriptinchild.html"
+            url: "iframetest/index-withiframe-tests-setdata.html"
         }).getView().open();
     }
     function start() {

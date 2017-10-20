@@ -1,0 +1,37 @@
+<html>
+<head>
+<script>
+	// not working
+function testFnParent(e){
+	alert('testfn called from parent');
+}
+function setUp(){
+  	Ti.API.info('iframe onload');
+	var oldDoc = document.getElementById("iframe").contentDocument;
+
+  // every 100 ms check if the document is the new one
+  var timer = setInterval(function(){
+    if (document.getElementById("iframe").contentDocument == oldDoc) return;
+
+    // new document, let's set handlers
+    document.getElementById("iframe").contentDocument.addEventListener('DOMContentLoaded', function(){
+      		document.getElementById("iframe").contentDocument.body.prepend('Hello, world!');
+      		Ti.App.addEventListener("app:fromTitanium", function(e) {
+						Ti.API.info('onside');
+			        	alert(e.message);
+			      	});
+    });
+
+    clearInterval(timer); // cancel setInterval, don't need it any more
+  }, 100);
+}
+</script>
+</head>
+<body onload="setUp();">
+
+<iframe src="/" id="iframe"></iframe>
+<script>
+
+</script>
+	</body>
+</html>

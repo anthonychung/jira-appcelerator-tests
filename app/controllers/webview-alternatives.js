@@ -36,10 +36,10 @@ function setupWebCrosswalk(_url){
 		top: 50,
 		height: Ti.UI.FILL,
 		width: Ti.UI.FILL,
-		enableJavascriptInterface:true,
+		// enableJavascriptInterface:true,
 		// url:""
-		// html:""
-		url: params.url,
+		html:""
+		// url: params.url,
 		// html: params.html
 	};
 
@@ -94,10 +94,11 @@ function setupWeb(_url){
       right:0,
       userAgent:APPNAME + '_' + os,        // ios only. Set in beforeload event on Android.
       backgroundColor:'white',
-	enableJavascriptInterface:true,
+		enableJavascriptInterface:true,
       // url:TEST_URL
-      // url:params.url
-      html:""
+      url:params.url
+      // html:""
+      // url:""
 	};
 
 	web = tiwebview2.createWebView(options);
@@ -133,21 +134,18 @@ function setupWeb(_url){
 		Ti.API.info('webview load e.loadedinjection '+e.loadedinjection);
 		Ti.API.info('webview load stoploading '+stoploading);
 
-		// if(loaded == false){
+		if(loaded == false && count == 1){
 			// setTimeout(function(){
-				// loaded = true;
-				if(e.url.includes("index") == false && stoploading != true){
-					web.setUrl(params.url);
-					// web.setData(params.blob,{
-					// 	baseURL: "file:///android_asset/Resources/iframetest",
-					// 	// baseURL: Ti.Filesystem.resourcesDirectory,
-					// 	mimeType: "text/html"
-					// });
-					// web.setHtml(params.html);
+				loaded = true;
+		
+				// web.setData(params.blob,{
+				// 	baseURL: "file:///android_asset/Resources/iframetest/index-withiframe-tests-setdata.html",
+				// 	// baseURL: "file:///android_asset/Resources/iframetest/index-withiframe.html",
+				// 	// baseURL: Ti.Filesystem.resourcesDirectory,
+				// 	mimeType: "text/html"
+				// });
 					
-				}else{
-					stoploading = true;
-				}
+		
 				// if(count==1){
 					// web.setData(params.blob,{
 					// 	baseURL: "file:///android_asset/Resources/iframetest",
@@ -163,7 +161,7 @@ function setupWeb(_url){
 					// },6000);
 					// web.setHtml(params.html);
 			// },3000);
-		// }
+		}
 		count = count +1;
 	});
 

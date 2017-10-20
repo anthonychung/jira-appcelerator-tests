@@ -12,11 +12,13 @@ function runTest2(){
 	// @rainer switch these to test
 	
 	Alloy.createController("test",{
-		// url: "iframetest/index-withiframe.html"
+		url: "iframetest/index-withiframe.html"
 		// url: "iframetest/index-withiframe-ondelay.html"
 		// url: "iframetest/index-withiframe-tests.html"
 		// url: "iframetest/index-frameset.html"
-		url: "iframetest/index-withiframe-tests-setdata.html"
+		// url: "iframetest/index-withiframe-sameorigin.html"
+		// 
+		// url: "iframetest/index-withiframe-tests-setdata.html"
 		// url: "iframetest/index-postmessage.html"
 		// url: "iframetest/index-documentwindow.html"
 		// url: "iframetest/index-loadtest.html"
@@ -29,9 +31,12 @@ function runTest3(){
 	
 	Alloy.createController("webview-alternatives",{
 		// url: "iframetest/index-withiframe.html"
+		url: "iframetest/index-withiframe-tests-setdata.html"
+		
 		// url: "iframetest/remote_test.html"
 		// url: "iframetest/index-withiframe-tests.html"
-		url: "iframetest/index-withiframe-withscriptinchild.html"
+		// url: "iframetest/index-withiframe-withscriptinchild.html"
+		// url: "iframetest/index-withiframe-sameorigin.html"
 		// url: "iframetest/index-withiframe-ondelay.html"
 		// url: "iframetest/index-withiframe-ondelay-sethtml.html"
 		// url: "iframetest/index-postmessage.html"
