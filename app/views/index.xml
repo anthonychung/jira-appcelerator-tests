@@ -3,5 +3,6 @@
 		<Button onClick="runTest1" class="block" title="TEST without iframe" />
 		<Button onClick="runTest2" class="block" title="TEST with iframe" />
 		<Button onClick="runTest3" class="block" title="TEST with alternatives" />
+		<Button onClick="runTest4" class="block" title="TEST with crosswalk" />
 	</Window>
 </Alloy>

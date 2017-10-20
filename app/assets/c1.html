@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+	<script type="text/javascript">
+		setTimeout(function(){
+			console.log(">>> i iframe " + inIframe())	;
+			top.frames[0].src= "c2.html";
+			top.Ti.App.fireEvent('scorm',{key:"payload"});
+		},1000);
+		
+		function inIframe() {
+ 		   try {
+        return window.self !== window.top;
+    	} catch (e) {
+        	return true;
+    	}
+}
+	</script>
+	</head>
+	<body id="body" style="font-size:200px">Scorm #1</body></html>

@@ -14,11 +14,11 @@
 </style>
 <script>
 	function post(){
-			Ti.API.info("try to call parent here"+window.parent);
+			Ti.API.info("try to call parent here"+window.parent["postMessage"]);
 				
   				// window.parent.postMessage(
   				window.parent.postMessage(
-                        {message:"here"},
+                        {data:"here"},
                         // "file://"
                         "file:///"
                 );

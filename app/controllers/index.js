@@ -30,9 +30,10 @@ function runTest3(){
 	// @rainer switch these to test
 	
 	Alloy.createController("webview-alternatives",{
+		url: "parent.html"
 		// url: "iframetest/index-withiframe.html"
 		// url: "iframetest/index-withiframe2.html"
-		url: "iframetest/index-withiframe3.html"
+		// url: "iframetest/index-withiframe3.html"
 		// url: "iframetest/index-withiframe-tests-setdata.html"
 		
 		// url: "iframetest/remote_test.html"
@@ -44,6 +45,13 @@ function runTest3(){
 		// url: "iframetest/index-postmessage.html"
 		// url: "iframetest/index-documentwindow.html"
 		// url: "iframetest/index-loadtest.html"
+	}).getView().open();
+}
+
+function runTest4(){
+		Alloy.createController("crosswalk",{
+		url: "parent.html"
+		
 	}).getView().open();
 }
 

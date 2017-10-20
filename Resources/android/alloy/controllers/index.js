@@ -20,7 +20,12 @@ function Controller() {
     }
     function runTest3() {
         Alloy.createController("webview-alternatives", {
-            url: "iframetest/index-withiframe3.html"
+            url: "parent.html"
+        }).getView().open();
+    }
+    function runTest4() {
+        Alloy.createController("crosswalk", {
+            url: "parent.html"
         }).getView().open();
     }
     function start() {
@@ -48,7 +53,7 @@ function Controller() {
         id: "index"
     });
     $.__views.index && $.addTopLevelView($.__views.index);
-    $.__views.__alloyId0 = Ti.UI.createButton({
+    $.__views.__alloyId3 = Ti.UI.createButton({
         borderStyle: Ti.UI.INPUT_BORDERSTYLE_LINE,
         backgroundColor: "white",
         color: "black",
@@ -58,11 +63,11 @@ function Controller() {
         borderRadius: 5,
         borderColor: "#ccc",
         title: "TEST without iframe",
-        id: "__alloyId0"
+        id: "__alloyId3"
     });
-    $.__views.index.add($.__views.__alloyId0);
-    runTest1 ? $.addListener($.__views.__alloyId0, "click", runTest1) : __defers["$.__views.__alloyId0!click!runTest1"] = true;
-    $.__views.__alloyId1 = Ti.UI.createButton({
+    $.__views.index.add($.__views.__alloyId3);
+    runTest1 ? $.addListener($.__views.__alloyId3, "click", runTest1) : __defers["$.__views.__alloyId3!click!runTest1"] = true;
+    $.__views.__alloyId4 = Ti.UI.createButton({
         borderStyle: Ti.UI.INPUT_BORDERSTYLE_LINE,
         backgroundColor: "white",
         color: "black",
@@ -72,11 +77,11 @@ function Controller() {
         borderRadius: 5,
         borderColor: "#ccc",
         title: "TEST with iframe",
-        id: "__alloyId1"
+        id: "__alloyId4"
     });
-    $.__views.index.add($.__views.__alloyId1);
-    runTest2 ? $.addListener($.__views.__alloyId1, "click", runTest2) : __defers["$.__views.__alloyId1!click!runTest2"] = true;
-    $.__views.__alloyId2 = Ti.UI.createButton({
+    $.__views.index.add($.__views.__alloyId4);
+    runTest2 ? $.addListener($.__views.__alloyId4, "click", runTest2) : __defers["$.__views.__alloyId4!click!runTest2"] = true;
+    $.__views.__alloyId5 = Ti.UI.createButton({
         borderStyle: Ti.UI.INPUT_BORDERSTYLE_LINE,
         backgroundColor: "white",
         color: "black",
@@ -86,16 +91,31 @@ function Controller() {
         borderRadius: 5,
         borderColor: "#ccc",
         title: "TEST with alternatives",
-        id: "__alloyId2"
+        id: "__alloyId5"
     });
-    $.__views.index.add($.__views.__alloyId2);
-    runTest3 ? $.addListener($.__views.__alloyId2, "click", runTest3) : __defers["$.__views.__alloyId2!click!runTest3"] = true;
+    $.__views.index.add($.__views.__alloyId5);
+    runTest3 ? $.addListener($.__views.__alloyId5, "click", runTest3) : __defers["$.__views.__alloyId5!click!runTest3"] = true;
+    $.__views.__alloyId6 = Ti.UI.createButton({
+        borderStyle: Ti.UI.INPUT_BORDERSTYLE_LINE,
+        backgroundColor: "white",
+        color: "black",
+        width: Ti.UI.FILL,
+        top: 50,
+        height: 50,
+        borderRadius: 5,
+        borderColor: "#ccc",
+        title: "TEST with crosswalk",
+        id: "__alloyId6"
+    });
+    $.__views.index.add($.__views.__alloyId6);
+    runTest4 ? $.addListener($.__views.__alloyId6, "click", runTest4) : __defers["$.__views.__alloyId6!click!runTest4"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
     start();
-    __defers["$.__views.__alloyId0!click!runTest1"] && $.addListener($.__views.__alloyId0, "click", runTest1);
-    __defers["$.__views.__alloyId1!click!runTest2"] && $.addListener($.__views.__alloyId1, "click", runTest2);
-    __defers["$.__views.__alloyId2!click!runTest3"] && $.addListener($.__views.__alloyId2, "click", runTest3);
+    __defers["$.__views.__alloyId3!click!runTest1"] && $.addListener($.__views.__alloyId3, "click", runTest1);
+    __defers["$.__views.__alloyId4!click!runTest2"] && $.addListener($.__views.__alloyId4, "click", runTest2);
+    __defers["$.__views.__alloyId5!click!runTest3"] && $.addListener($.__views.__alloyId5, "click", runTest3);
+    __defers["$.__views.__alloyId6!click!runTest4"] && $.addListener($.__views.__alloyId6, "click", runTest4);
     _.extend($, exports);
 }
 

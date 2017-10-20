@@ -2,10 +2,12 @@
 	<head>
 	<script>
 		Ti.API.info('inside parent called');
-			
-		window.addEventListener("message", function(e) {
-        	alert(e.message);
-      	});
+		document.addEventListener('DOMContentLoaded', function() {
+				window.addEventListener("message", function(e) {
+		        	alert(e.data);
+		      	});
+				
+			});
 	</script>
 	</head>
 	<body>
