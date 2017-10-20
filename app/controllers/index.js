@@ -49,10 +49,12 @@ function runTest3(){
 }
 
 function runTest4(){
-		Alloy.createController("crosswalk",{
-		url: "parent.html"
+	// require("/xwalk").runTest2();
+	require("/xwalk").runTest();
+	// Alloy.createController("crosswalk",{
+	// 	url: "parent.html"
 		
-	}).getView().open();
+	// }).getView().open();
 }
 
 

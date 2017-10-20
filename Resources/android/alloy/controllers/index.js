@@ -24,9 +24,7 @@ function Controller() {
         }).getView().open();
     }
     function runTest4() {
-        Alloy.createController("crosswalk", {
-            url: "parent.html"
-        }).getView().open();
+        require("/xwalk").runTest();
     }
     function start() {
         Ti.App.addEventListener("app:fromWebView", function(e) {

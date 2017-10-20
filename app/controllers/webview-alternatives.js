@@ -32,14 +32,14 @@ function setupWebCrosswalk(_url){
 	var params = getResourcePath(path);
 
 	var options = {
-		zIndex: 9,
+		// zIndex: 9,
 		top: 50,
-		height: Ti.UI.FILL,
-		width: Ti.UI.FILL,
-		// enableJavascriptInterface:true,
+		// height: Ti.UI.FILL,
+		// width: Ti.UI.FILL,
+		enableJavascriptInterface:true,
 		// url:""
-		html:""
-		// url: params.url,
+		// html:""
+		url: params.url
 		// html: params.html
 	};
 
@@ -172,8 +172,8 @@ function setupWeb(_url){
 function start(){
 	cleanUp();
 	// setupWeb2("iframetest/index-withiframe.html");
-	// setupWebCrosswalk(args.url);
-	setupWeb(args.url);
+	setupWebCrosswalk(args.url);
+	// setupWeb(args.url);
 }
 
 function cleanUp(){
