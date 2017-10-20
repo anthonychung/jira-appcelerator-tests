@@ -1,0 +1,14 @@
+<html>
+	<head>
+	<script>
+		Ti.API.info('inside parent called');
+			
+		window.addEventListener("message", function(e) {
+        	alert(e.message);
+      	});
+	</script>
+	</head>
+	<body>
+	<iframe id="myiframe" src="./blank_withscript_postmessage.html"  frameborder="0" style="overflow:hidden;height:100vh;width:100vw" ></iframe>
+	</body>
+</html>

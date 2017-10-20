@@ -13,40 +13,22 @@
 }
 </style>
 <script>
-		document.addEventListener('DOMContentLoaded', function() {
-	
-			// delay needed after onload so tiinjection is ready
-			
-	      	// alert("blank withscript setupWithScript");
-			Ti.App.addEventListener("app:fromTitanium", function(e) {
-				var url = "http://google.com";
-				Ti.API.info("try to call parent here");
-				var origindir = location.href.replace(/[^/]*$/, '');
-  				// window.opener.postMessage(
-  				// parent.postMessage(
-  				window.postMessage(
+	function post(){
+			Ti.API.info("try to call parent here"+window.parent);
+				
   				// window.parent.postMessage(
-                        url,
-                        // e.url,
-                        origindir
+  				window.parent.postMessage(
+                        {message:"here"},
+                        // "file://"
+                        "file:///"
                 );
-			         //        
-			         //        // can't reach parent
-							// window.parent.postMessage(
-			    //                     e.url,
-			    //                     origindir
-			    //             );
-    			// var event = new CustomEvent('messagefromchild', { url: url});
-    			// window.dispatchEvent(event);					
-
-	      	});
-		});
-		
+			
+	}		
 
 	</script>
 </head>
 <body style="margin:0px;padding:20%;overflow:hidden" >
     <div class="centered">File inside iframe...</div>
-    	<button onclick="Ti.App.fireEvent('app:fromWebView', { message: 'event fired from WebView, handled in Titanium' });">fire app:fromWebView</button>
+    	<button onclick="post();">fire app:fromWebView</button>
 </body> 
 </html>

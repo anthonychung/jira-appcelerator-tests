@@ -20,13 +20,15 @@
 
 		// setTimeout(function(){
 	      	// alert("blank withscript setupWithScript");
-			Ti.App.addEventListener("app:fromTitanium", function(e) {
-				Ti.API.info("info: "+window.top.frames.length);
-				Ti.API.info("info: "+top.frames.length);
-				alert('inside blank_withscript'+e.message);
-				Ti.API.info("info does not work: parent.document.frames: "+parent.document.frames.length);
+	      	
+			// Ti.App.addEventListener("app:fromTitanium", function(e) {
+			// 	Ti.API.info("info: "+window.top.frames.length);
+			// 	Ti.API.info("info: "+top.frames.length);
+			// 	alert('inside blank_withscript'+e.message);
+			// 	Ti.API.info("info does not work: parent.document.frames: "+parent.document.frames.length);
 				
-	      	});
+	  //     	});
+	      	
 		// },2000);
 	}
 	

@@ -20,7 +20,7 @@ function Controller() {
     }
     function runTest3() {
         Alloy.createController("webview-alternatives", {
-            url: "iframetest/index-withiframe-withscriptinchild.html"
+            url: "iframetest/index-withiframe3.html"
         }).getView().open();
     }
     function start() {
